@@ -225,6 +225,15 @@ class MultiGenomeTestRig(unittest.TestCase):
         self.assertTrue(ndarrays_equal(out, expected_output),
                         msg=format_error_message(func))
 
+    @string_match_decorator(twod_string_matching_algorithms)
+    def test_example(self, func):
+        s = "ACGACACAACACACACATAG"
+        expected_output = np.array([[0]])
+        out = func(texts=[s], pattern="ACG")
+        print(expected_output)
+        print(out)
+        self.assertTrue(ndarrays_equal(out, expected_output),
+                        msg = format_error_message(func))
 
 if __name__ == '__main__':
     unittest.main()
